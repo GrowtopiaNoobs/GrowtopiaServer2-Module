@@ -1,4 +1,4 @@
-# GrowtopiaServer2-Module
+# GrowtopiaServer2-Module [![Build status](https://ci.appveyor.com/api/projects/status/ev5y2qr1fg2gbdg6?svg=true)](https://ci.appveyor.com/project/GrowtopiaNoobs/growtopiaserver2-module)
 
 To build module execute command: `g++ -fPIC -shared -rdynamic module_name.cpp -o module_name.so`
 
