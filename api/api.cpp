@@ -24,7 +24,13 @@ void __macrocall_create_event_self_and_global(void* ptr, uint8_t** __currentData
 	__create_event_self_and_global(ptr, (char*)name.c_str(), data.getData(), msTime, __currentDataPtr);
 }
 
-extern "C" void ModuleExecuteSetup(void* eventRegistrator, void* eventGuardRegistrator, void* functionRegistrator, void* create_event_self__, void* create_event_global__, void* create_event_self_and_global__, void* call_function__) {
+#ifdef _WIN32
+#define EXPORT_FUNC_MODIFIER extern "C" __declspec(dllexport) 
+#else
+#define EXPORT_FUNC_MODIFIER extern "C"
+#endif
+
+EXPORT_FUNC_MODIFIER void ModuleExecuteSetup(void* eventRegistrator, void* eventGuardRegistrator, void* functionRegistrator, void* create_event_self__, void* create_event_global__, void* create_event_self_and_global__, void* call_function__) {
 	__registerEvent = (void (*)(char*, void*))eventRegistrator;
 	__registerGuard = (void (*)(char*, void*))eventGuardRegistrator;
 	__registerFunction = (void (*)(char*, void*))functionRegistrator;
@@ -38,7 +44,7 @@ extern "C" void ModuleExecuteSetup(void* eventRegistrator, void* eventGuardRegis
 	InitModule();
 }
 
-extern "C" int ModuleGetVersion(void)
+EXPORT_FUNC_MODIFIER int ModuleGetVersion(void)
 {
 	return 1;
 }
