@@ -16,7 +16,7 @@ for:
 
     artifacts:
     - path: bin
-      name: GrowtopiaServer-Ubuntu1804
+      name: GrowtopiaServerModule-Ubuntu1804
 
   -
     matrix:
@@ -28,7 +28,7 @@ for:
 
     artifacts:
     - path: bin
-      name: GrowtopiaServer-WIN-VS15
+      name: GrowtopiaServerModule-WIN-VS15
 
   -
     matrix:
@@ -40,7 +40,7 @@ for:
 
     artifacts:
     - path: bin
-      name: GrowtopiaServer-WIN-VS17
+      name: GrowtopiaServerModule-WIN-VS17
 
   -
     matrix:
@@ -52,7 +52,7 @@ for:
 
     artifacts:
     - path: bin
-      name: GrowtopiaServer-WIN-VS19
+      name: GrowtopiaServerModule-WIN-VS19
 
 deploy:
 - provider: GitHub

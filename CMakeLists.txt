@@ -11,7 +11,7 @@ file (GLOB srcfiles
 
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_SOURCE_DIR}/CMake)
 
-add_library(GrowtopiaServerModule ${srcfiles})
+add_library(GrowtopiaServerModule MODULE ${srcfiles})
 
 target_compile_options(GrowtopiaServerModule PRIVATE -shared-libgcc -fPIC -shared -rdynamic)
 
