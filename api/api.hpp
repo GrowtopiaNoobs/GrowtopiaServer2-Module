@@ -4,7 +4,7 @@
 #include <vector>
 #include <map>
 
-#define X __currentDataPtr
+#define _X_ __currentDataPtr
 
 typedef void (*EventHandler)(uint8_t* pack, char* serverName, void* serverPtr, void* current_event_caller, uint8_t** currentDataPtr);
 typedef char (*GuardHandler)(uint8_t* pack, char* serverName, void* serverPtr, void* current_event_caller, uint8_t** currentDataPtr);

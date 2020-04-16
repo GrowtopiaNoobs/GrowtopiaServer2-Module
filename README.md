@@ -40,11 +40,11 @@ FUNCTION(ExampleFunction) {
 	try {
 		std::string exampleText = pack["exampleText"];
 		std::cout << "Here is some example message from function: " << exampleText << std::endl;
-		EventPack ret(X);
+		EventPack ret(_X_);
 		ret["status"] = "success";
 		return ret;
 	} catch(...) {
-		EventPack ret(X);
+		EventPack ret(_X_);
 		ret["status"] = "failed";
 		return ret;
 	}
@@ -52,7 +52,7 @@ FUNCTION(ExampleFunction) {
 ```
 ### Executing event
 ```C++
-EventPack p(X);
+EventPack p(_X_);
 p["exampleText"] = "Hello world!";
 create_event_self("ExampleEvent", p); // this executes event only on current sever
 // or
@@ -63,7 +63,7 @@ create_event_self_and_global("ExampleEvent", p); // this executes event on all s
 ### Executing delayed event
 In this example delay of event will be one second.
 ```C++
-EventPack p(X);
+EventPack p(_X_);
 p["exampleText"] = "Hello world!";
 create_event_self("ExampleEvent", p, 1000); // this executes event only on current sever
 // or
@@ -73,7 +73,7 @@ create_event_self_and_global("ExampleEvent", p, 1000); // this executes event on
 ```
 ### Executing function
 ```C++
-EventPack p(X);
+EventPack p(_X_);
 p["exampleText"] = "Hello world!";
 EventUnpack p2 = call_function("ExampleFunction", p);
 std::string status = p2["status"];
@@ -160,22 +160,22 @@ FUNCTION(ExampleFunction) {
 	try {
 		std::string exampleText = pack["exampleText"];
 		std::cout << "Here is some example message from function: " << exampleText << std::endl;
-		EventPack ret(X);
+		EventPack ret(_X_);
 		ret["status"] = "success";
 		return ret;
 	} catch(...) {
-		EventPack ret(X);
+		EventPack ret(_X_);
 		ret["status"] = "failed";
 		return ret;
 	}
 }
 
 EVENT(OnPlayerConnect) {
-	EventPack p(X);
+	EventPack p(_X_);
 	p["exampleText"] = "New player has connected!";
 	call_function("ExampleFunction", p);
 	
-	EventPack p(X);
+	EventPack p(_X_);
 	p["exampleText"] = "There was some player, which connected one minute ago.";
 	create_event_self("ExampleEvent", p, 60000);
 
